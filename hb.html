@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎂 عيد ميلاد سعيد رغد 🎂</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(135deg, #ff69b4 0%, #ffb6d9 50%, #ffc0cb 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arabic Typesetting', Arial, sans-serif;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* خلفية ساحرة */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, rgba(255, 182, 193, 0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(255, 105, 180, 0.2) 0%, transparent 50%);
+            pointer-events: none;
+            animation: shimmer 8s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        /* البطاقة الرئيسية */
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            padding: 60px 40px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(255, 105, 180, 0.4),
+                        0 0 40px rgba(255, 182, 193, 0.6);
+            max-width: 600px;
+            z-index: 10;
+            position: relative;
+            animation: float 3s ease-in-out infinite;
+            backdrop-filter: blur(10px);
+            border: 3px solid rgba(255, 105, 180, 0.3);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        h1 {
+            color: #ff1493;
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            text-shadow: 3px 3px 6px rgba(255, 105, 180, 0.3);
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .date {
+            color: #ff69b4;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .divider {
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, transparent, #ff69b4, transparent);
+            margin: 25px auto;
+        }
+
+        .message {
+            color: #333;
+            font-size: 1.3em;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .emoji {
+            font-size: 2.5em;
+            margin: 15px 0;
+            animation: bounce 1.5s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* قلوب طائرة */
+        .hearts-container {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 2em;
+            animation: float-heart 6s infinite ease-in;
+            opacity: 0.7;
+        }
+
+        @keyframes float-heart {
+            0% {
+                bottom: -50px;
+                opacity: 1;
+            }
+            100% {
+                bottom: 100vh;
+                opacity: 0;
+                transform: translateX(100px);
+            }
+        }
+
+        /* نجوم براقة */
+        .sparkles {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 3;
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #fff;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+
+        /* الكونفيتي */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            z-index: 4;
+            pointer-events: none;
+        }
+
+        /* زر خاص */
+        .button {
+            background: linear-gradient(135deg, #ff1493, #ff69b4);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1em;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-top: 20px;
+            box-shadow: 0 8px 15px rgba(255, 105, 180, 0.4);
+            transition: all 0.3s ease;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(255, 105, 180, 0.6);
+        }
+
+        .button:active {
+            transform: translateY(-1px);
+        }
+
+        /* النص المتوهج */
+        .glow-text {
+            font-size: 2em;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff1493, #ff69b4, #ffb6d9, #ff1493);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glow-animation 4s ease infinite;
+            margin: 15px 0;
+        }
+
+        @keyframes glow-animation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts-container" id="heartsContainer"></div>
+    <div class="sparkles" id="sparklesContainer"></div>
+
+    <div class="card">
+        <div class="emoji">🎉💖✨</div>
+        <h1>عيد ميلاد سعيد</h1>
+        <h1 style="font-size: 2.8em; color: #ff69b4; margin-top: -10px;">رغد</h1>
+        <div class="divider"></div>
+        <div class="date">18 أغسطس</div>
+        <div class="glow-text">✨ يوم خاص لشخص خاص ✨</div>
+        <div class="message">
+            في هذا اليوم الجميل، نتمنى أن يكون عامك مليئاً بالفرح والسعادة والأحلام التي تتحقق. أنتِ نجمة ساحرة تضيئين كل حياة حولك بحنانك وطيبة قلبك.
+        </div>
+        <div class="message" style="font-size: 1.1em; color: #ff1493; font-style: italic;">
+            لتكن كل لحظة في عمرك الجديد مليئة بالسحر والجمال والذكريات الرائعة! 💕
+        </div>
+        <div class="emoji">🌹🎂🌟</div>
+        <button class="button" onclick="createMagic()">اضغطي للسحر ✨</button>
+    </div>
+
+    <script>
+        // إنشاء القلوب الطائرة
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = '💗';
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDuration = (Math.random() * 2 + 4) + 's';
+            heart.style.animationDelay = Math.random() * 2 + 's';
+            document.getElementById('heartsContainer').appendChild(heart);
+            
+            setTimeout(() => heart.remove(), 8000);
+        }
+
+        // إنشاء النجوم البراقة
+        function createSparkles() {
+            for (let i = 0; i < 30; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                sparkle.style.left = Math.random() * 100 + '%';
+                sparkle.style.top = Math.random() * 100 + '%';
+                sparkle.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                sparkle.style.animationDelay = Math.random() * 3 + 's';
+                document.getElementById('sparklesContainer').appendChild(sparkle);
+            }
+        }
+
+        // إنشاء الكونفيتي
+        function createConfetti() {
+            const colors = ['#ff1493', '#ff69b4', '#ffb6d9', '#ffc0cb', '#fff'];
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.top = '-20px';
+                confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animation = `fall ${Math.random() * 3 + 2}s linear forwards`;
+                document.body.appendChild(confetti);
+                
+                setTimeout(() => confetti.remove(), 5000);
+            }
+        }
+
+        // رسم الكونفيتي الساقط
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes fall {
+                to {
+                    transform: translateY(100vh) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // السحر عند الضغط
+        function createMagic() {
+            for (let i = 0; i < 5; i++) {
+                setTimeout(() => {
+                    createHeart();
+                    createConfetti();
+                }, i * 200);
+            }
+            
+            // تأثير اهتزاز
+            const card = document.querySelector('.card');
+            card.style.animation = 'none';
+            setTimeout(() => {
+                card.style.animation = 'float 3s ease-in-out infinite';
+            }, 10);
+        }
+
+        // تشغيل على التحميل
+        window.addEventListener('load', () => {
+            createSparkles();
+            setInterval(createHeart, 800);
+        });
+
+        // تأثير ساحر عند تحريك الماوس
+        document.addEventListener('mousemove', (e) => {
+            if (Math.random() > 0.95) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                sparkle.style.left = e.clientX + 'px';
+                sparkle.style.top = e.clientY + 'px';
+                sparkle.style.width = '3px';
+                sparkle.style.height = '3px';
+                sparkle.style.animationDuration = '1s';
+                document.getElementById('sparklesContainer').appendChild(sparkle);
+                setTimeout(() => sparkle.remove(), 1000);
+            }
+        });
+    </script>
+</body>
+</html>
