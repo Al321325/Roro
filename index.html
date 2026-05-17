@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>✨ عيد ميلاد رغد - عالم السحر ✨</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700;900&display=swap');
@@ -11,18 +11,23 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
 
         html, body {
             width: 100%;
             height: 100%;
+            height: 100vh;
             overflow: hidden;
+            -webkit-user-select: none;
+            user-select: none;
         }
 
         body {
             font-family: 'Poppins', 'Arial', sans-serif;
             background: #000;
             position: relative;
+            touch-action: manipulation;
         }
 
         /* خلفية متحركة مع نجوم */
@@ -134,7 +139,7 @@
             }
         }
 
-        /* البطاقة الرئيسية - متطورة جداً */
+        /* البطاقة الرئيسية - محسّنة للموبايل */
         .main-container {
             position: fixed;
             width: 100%;
@@ -143,21 +148,25 @@
             justify-content: center;
             align-items: center;
             z-index: 10;
+            padding: 20px;
+            overflow-y: auto;
         }
 
         .card-wrapper {
             perspective: 1200px;
             position: relative;
+            width: 100%;
+            max-width: 500px;
         }
 
         .card {
             position: relative;
-            width: 500px;
-            padding: 80px 60px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px solid rgba(255, 20, 147, 0.3);
-            border-radius: 40px;
-            backdrop-filter: blur(20px);
+            width: 100%;
+            padding: 60px 40px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 2px solid rgba(255, 20, 147, 0.4);
+            border-radius: 35px;
+            backdrop-filter: blur(25px);
             box-shadow: 
                 0 0 60px rgba(255, 20, 147, 0.4),
                 0 0 120px rgba(138, 43, 226, 0.2),
@@ -172,7 +181,7 @@
                 transform: translateY(0px) rotateX(0deg);
             }
             50% {
-                transform: translateY(-30px) rotateX(5deg);
+                transform: translateY(-20px) rotateX(3deg);
             }
         }
 
@@ -193,10 +202,11 @@
 
         /* النص الرئيسي */
         .emoji-main {
-            font-size: 4em;
-            margin-bottom: 20px;
+            font-size: 3.5em;
+            margin-bottom: 15px;
             animation: emoji-bounce 1.2s ease-in-out infinite;
             filter: drop-shadow(0 0 20px rgba(255, 20, 147, 0.6));
+            line-height: 1;
         }
 
         @keyframes emoji-bounce {
@@ -204,37 +214,34 @@
                 transform: translateY(0) scale(1);
             }
             50% {
-                transform: translateY(-25px) scale(1.1);
+                transform: translateY(-20px) scale(1.1);
             }
         }
 
         .title {
-            font-size: 2.5em;
+            font-size: 2em;
             font-weight: 900;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             background: linear-gradient(135deg, #ff1493, #ff69b4, #ff1493);
             background-size: 300% 300%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             animation: text-shimmer 3s ease infinite;
-            text-shadow: 0 0 30px rgba(255, 20, 147, 0.3);
-            letter-spacing: 2px;
+            letter-spacing: 1px;
         }
 
         @keyframes text-shimmer {
             0%, 100% {
                 background-position: 0% 50%;
-                filter: brightness(1);
             }
             50% {
                 background-position: 100% 50%;
-                filter: brightness(1.3);
             }
         }
 
         .name {
-            font-size: 3.5em;
+            font-size: 3em;
             font-weight: 900;
             background: linear-gradient(45deg, #ff1493, #ffb6d9, #ff69b4, #ff1493);
             background-size: 400% 400%;
@@ -242,28 +249,22 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             animation: gradient-shift 4s ease infinite;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             filter: drop-shadow(0 0 30px rgba(255, 20, 147, 0.5));
-            letter-spacing: 3px;
+            letter-spacing: 2px;
         }
 
         @keyframes gradient-shift {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .divider {
-            width: 120px;
-            height: 4px;
+            width: 100px;
+            height: 3px;
             background: linear-gradient(90deg, transparent, #ff1493, transparent);
-            margin: 30px auto;
+            margin: 20px auto;
             box-shadow: 0 0 20px rgba(255, 20, 147, 0.6);
             animation: divider-glow 2s ease-in-out infinite;
         }
@@ -280,11 +281,11 @@
         }
 
         .date {
-            font-size: 1.8em;
+            font-size: 1.5em;
             color: #ffb6d9;
             font-weight: 700;
-            margin-bottom: 30px;
-            letter-spacing: 2px;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
             animation: date-pulse 2s ease-in-out infinite;
             text-shadow: 0 0 15px rgba(255, 182, 193, 0.8);
         }
@@ -301,11 +302,11 @@
         }
 
         .magic-text {
-            font-size: 1.6em;
+            font-size: 1.4em;
             color: #fff;
-            margin-bottom: 25px;
+            margin-bottom: 18px;
             font-weight: 600;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             animation: glow-text 2s ease-in-out infinite;
         }
 
@@ -322,28 +323,26 @@
 
         .message {
             color: #e0e0e0;
-            font-size: 1.2em;
-            line-height: 2;
-            margin-bottom: 25px;
+            font-size: 1em;
+            line-height: 1.8;
+            margin-bottom: 18px;
             font-weight: 400;
             animation: message-fade 3s ease-in-out infinite;
+            max-height: 150px;
+            overflow-y: auto;
         }
 
         @keyframes message-fade {
-            0%, 100% {
-                opacity: 0.8;
-            }
-            50% {
-                opacity: 1;
-            }
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
         }
 
         .special-message {
-            font-size: 1.3em;
+            font-size: 1.1em;
             color: #ffb6d9;
             font-style: italic;
             font-weight: 600;
-            margin-bottom: 25px;
+            margin-bottom: 18px;
             animation: special-glow 2s ease-in-out infinite;
             text-shadow: 0 0 20px rgba(255, 182, 193, 0.6);
         }
@@ -360,10 +359,11 @@
         }
 
         .emoji-bottom {
-            font-size: 3em;
-            margin: 20px 0;
+            font-size: 2.5em;
+            margin: 15px 0;
             animation: emoji-rotate 4s linear infinite;
             filter: drop-shadow(0 0 15px rgba(255, 20, 147, 0.5));
+            line-height: 1;
         }
 
         @keyframes emoji-rotate {
@@ -380,20 +380,22 @@
             background-size: 300% 300%;
             color: white;
             border: 2px solid rgba(255, 20, 147, 0.5);
-            padding: 18px 50px;
-            font-size: 1.3em;
-            border-radius: 60px;
+            padding: 16px 40px;
+            font-size: 1.1em;
+            border-radius: 50px;
             cursor: pointer;
-            margin-top: 30px;
+            margin-top: 20px;
             font-weight: 700;
             transition: all 0.3s ease;
             box-shadow: 
                 0 0 30px rgba(255, 20, 147, 0.5),
                 0 0 60px rgba(138, 43, 226, 0.3);
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             position: relative;
             overflow: hidden;
             animation: button-glow 2s ease-in-out infinite;
+            width: 100%;
+            max-width: 280px;
         }
 
         .magic-button::before {
@@ -427,15 +429,8 @@
             }
         }
 
-        .magic-button:hover {
-            transform: translateY(-5px) scale(1.1);
-            box-shadow: 
-                0 0 60px rgba(255, 20, 147, 0.8),
-                0 0 120px rgba(138, 43, 226, 0.6);
-        }
-
         .magic-button:active {
-            transform: translateY(-2px) scale(1.08);
+            transform: scale(0.98);
         }
 
         /* تأثيرات خاصة */
@@ -451,7 +446,7 @@
 
         .heart {
             position: absolute;
-            font-size: 2.5em;
+            font-size: 2em;
             animation: fall-heart 4s linear forwards;
             filter: drop-shadow(0 0 10px rgba(255, 20, 147, 0.8));
         }
@@ -468,7 +463,7 @@
             100% {
                 top: 100vh;
                 opacity: 0;
-                transform: translateX(100px) rotate(360deg) scale(0);
+                transform: translateX(80px) rotate(360deg) scale(0);
             }
         }
 
@@ -493,23 +488,85 @@
             }
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
+        /* Responsive - تحسينات الموبايل */
+        @media (max-width: 600px) {
+            .main-container {
+                padding: 15px;
+            }
+
             .card {
-                width: 350px;
-                padding: 60px 40px;
+                padding: 45px 30px;
+                border-radius: 30px;
             }
 
             .name {
-                font-size: 2.5em;
+                font-size: 2.3em;
+                letter-spacing: 1px;
             }
 
             .title {
-                font-size: 1.8em;
+                font-size: 1.5em;
             }
 
             .emoji-main {
-                font-size: 3em;
+                font-size: 2.8em;
+                margin-bottom: 12px;
+            }
+
+            .message {
+                font-size: 0.95em;
+                line-height: 1.6;
+                max-height: 120px;
+            }
+
+            .magic-button {
+                padding: 14px 35px;
+                font-size: 1em;
+                margin-top: 15px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .card {
+                padding: 35px 25px;
+                border-radius: 25px;
+            }
+
+            .name {
+                font-size: 2em;
+            }
+
+            .title {
+                font-size: 1.3em;
+            }
+
+            .emoji-main {
+                font-size: 2.3em;
+            }
+
+            .date {
+                font-size: 1.2em;
+            }
+
+            .message {
+                font-size: 0.9em;
+                max-height: 100px;
+                margin-bottom: 15px;
+            }
+
+            .special-message {
+                font-size: 1em;
+            }
+
+            .emoji-bottom {
+                font-size: 2em;
+            }
+        }
+
+        /* تحسينات الأداء */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
             }
         }
     </style>
@@ -533,7 +590,7 @@
                 <div class="date">18 أغسطس</div>
                 <div class="magic-text">💫 يوم ساحر لنجمة ساحرة 💫</div>
                 <div class="message">
-                    في هذا اليوم الخاص، ينيرُ الكون كله بوجودك الرائع. أنتِ قطعة من السحر تسيرين بين البشر، تنثرين الفر[...]
+                    في هذا اليوم الخاص، ينيرُ الكون كله بوجودك الرائع. أنتِ قطعة من السحر تسيرين بين البشر، تنثرين الفرح والضياء حيثما ذهبتِ. 
                 </div>
                 <div class="special-message">
                     لتكن هذه السنة أجمل ما عشتِ، مليئة بالأحلام التي تتحقق والذكريات التي تخلدين! 💕✨
@@ -548,10 +605,10 @@
         // إنشاء النجوم
         function createStars() {
             const container = document.getElementById('starsContainer');
-            for (let i = 0; i < 150; i++) {
+            for (let i = 0; i < 100; i++) {
                 const star = document.createElement('div');
                 star.className = 'star';
-                star.style.width = Math.random() * 3 + 'px';
+                star.style.width = Math.random() * 2.5 + 'px';
                 star.style.height = star.style.width;
                 star.style.left = Math.random() * 100 + '%';
                 star.style.top = Math.random() * 100 + '%';
@@ -564,6 +621,9 @@
         // إنشاء الجزيئات السحرية
         function createParticles() {
             const container = document.getElementById('particleContainer');
+            const isMobile = window.innerWidth <= 768;
+            const interval = isMobile ? 300 : 200;
+            
             setInterval(() => {
                 const particle = document.createElement('div');
                 particle.className = 'particle orb';
@@ -571,7 +631,7 @@
                 particle.style.top = Math.random() * 100 + '%';
                 
                 const angle = Math.random() * Math.PI * 2;
-                const distance = Math.random() * 300 + 200;
+                const distance = Math.random() * 250 + 150;
                 const tx = Math.cos(angle) * distance;
                 const ty = Math.sin(angle) * distance;
                 
@@ -581,7 +641,7 @@
                 
                 container.appendChild(particle);
                 setTimeout(() => particle.remove(), 6000);
-            }, 200);
+            }, interval);
         }
 
         // قلوب الحب الساقطة
@@ -600,14 +660,16 @@
         // ألعاب نارية براقة
         function createSparkles(x, y) {
             const container = document.getElementById('heartsContainer');
-            for (let i = 0; i < 30; i++) {
+            const sparkleCount = window.innerWidth <= 768 ? 20 : 30;
+            
+            for (let i = 0; i < sparkleCount; i++) {
                 const sparkle = document.createElement('div');
                 sparkle.className = 'sparkle';
                 sparkle.style.left = x + 'px';
                 sparkle.style.top = y + 'px';
                 
-                const angle = (i / 30) * Math.PI * 2;
-                const distance = Math.random() * 300 + 200;
+                const angle = (i / sparkleCount) * Math.PI * 2;
+                const distance = Math.random() * 250 + 150;
                 const tx = Math.cos(angle) * distance;
                 const ty = Math.sin(angle) * distance;
                 
@@ -630,7 +692,7 @@
             }, 10);
 
             // قلوب متعددة
-            for (let i = 0; i < 12; i++) {
+            for (let i = 0; i < 10; i++) {
                 setTimeout(() => {
                     createHeart();
                     createSparkles(
@@ -641,9 +703,30 @@
             }
         }
 
-        // تأثير الماوس السحري
+        // تأثير اللمس السحري (بدلاً من الماوس على الموبايل)
+        let lastTouchTime = 0;
+        document.addEventListener('touchmove', (e) => {
+            const now = Date.now();
+            if (now - lastTouchTime > 200) {
+                lastTouchTime = now;
+                const touches = e.touches[0];
+                if (Math.random() > 0.95) {
+                    const sparkle = document.createElement('div');
+                    sparkle.className = 'sparkle';
+                    sparkle.style.left = touches.clientX + 'px';
+                    sparkle.style.top = touches.clientY + 'px';
+                    sparkle.style.setProperty('--tx', (Math.random() - 0.5) * 80 + 'px');
+                    sparkle.style.setProperty('--ty', (Math.random() - 0.5) * 80 + 'px');
+                    sparkle.style.animationDuration = '1.5s';
+                    document.getElementById('heartsContainer').appendChild(sparkle);
+                    setTimeout(() => sparkle.remove(), 1500);
+                }
+            }
+        }, { passive: true });
+
+        // تأثير الماوس السحري (للديسكتوب)
         document.addEventListener('mousemove', (e) => {
-            if (Math.random() > 0.98) {
+            if (window.innerWidth > 768 && Math.random() > 0.98) {
                 const sparkle = document.createElement('div');
                 sparkle.className = 'sparkle';
                 sparkle.style.left = e.clientX + 'px';
@@ -666,14 +749,24 @@
                 if (Math.random() > 0.7) {
                     createHeart();
                 }
-            }, 1000);
+            }, 1200);
         });
 
-        // كليك عشوائي يعطي سحر
+        // كليك/تاب عشوائي يعطي سحر
         document.addEventListener('click', (e) => {
             if (e.target.tagName !== 'BUTTON') {
                 createSparkles(e.clientX, e.clientY);
             }
+        });
+
+        // منع التكبير على الضغط المزدوج
+        let lastTap = 0;
+        document.addEventListener('touchend', (e) => {
+            const now = Date.now();
+            if (now - lastTap <= 300) {
+                e.preventDefault();
+            }
+            lastTap = now;
         });
     </script>
 </body>
