@@ -30,7 +30,7 @@
             touch-action: manipulation;
         }
 
-        /* خلفية متحركة مع نجوم */
+        /* خلفية متحركة مع نجوم - محسّن */
         .bg-stars {
             position: fixed;
             width: 100%;
@@ -46,6 +46,7 @@
             background: white;
             border-radius: 50%;
             animation: twinkle-star 3s infinite;
+            will-change: opacity;
         }
 
         @keyframes twinkle-star {
@@ -70,33 +71,34 @@
             height: 200%;
             background: linear-gradient(45deg, 
                 transparent 0%,
-                rgba(255, 20, 147, 0.15) 10%,
+                rgba(255, 20, 147, 0.1) 10%,
                 transparent 20%,
-                rgba(138, 43, 226, 0.12) 30%,
+                rgba(138, 43, 226, 0.08) 30%,
                 transparent 40%,
-                rgba(255, 20, 147, 0.15) 50%,
+                rgba(255, 20, 147, 0.1) 50%,
                 transparent 60%,
-                rgba(200, 100, 255, 0.1) 70%,
+                rgba(200, 100, 255, 0.08) 70%,
                 transparent 80%,
-                rgba(255, 20, 147, 0.12) 90%,
+                rgba(255, 20, 147, 0.08) 90%,
                 transparent 100%
             );
             animation: aurora-dance 15s ease-in-out infinite;
-            filter: blur(80px);
+            filter: blur(60px);
+            will-change: transform;
         }
 
         @keyframes aurora-dance {
             0%, 100% { 
                 transform: translate(-50%, -50%) rotate(0deg);
-                opacity: 0.4;
+                opacity: 0.3;
             }
             50% { 
                 transform: translate(-30%, -30%) rotate(180deg);
-                opacity: 0.6;
+                opacity: 0.5;
             }
         }
 
-        /* جزيئات سحرية طائرة */
+        /* جزيئات سحرية - أقل عدداً */
         .particle-container {
             position: fixed;
             width: 100%;
@@ -110,15 +112,15 @@
         .particle {
             position: absolute;
             pointer-events: none;
-            filter: blur(1px);
         }
 
         .particle.orb {
-            width: 10px;
-            height: 10px;
-            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), rgba(255, 20, 147, 0.4));
+            width: 8px;
+            height: 8px;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.6), rgba(255, 20, 147, 0.3));
             border-radius: 50%;
-            box-shadow: 0 0 20px rgba(255, 20, 147, 0.6);
+            box-shadow: 0 0 15px rgba(255, 20, 147, 0.4);
+            will-change: transform;
         }
 
         @keyframes float-orb {
@@ -139,7 +141,7 @@
             }
         }
 
-        /* البطاقة الرئيسية - محسّنة للموبايل */
+        /* البطاقة الرئيسية */
         .main-container {
             position: fixed;
             width: 100%;
@@ -149,7 +151,6 @@
             align-items: center;
             z-index: 10;
             padding: 20px;
-            overflow-y: auto;
         }
 
         .card-wrapper {
@@ -164,39 +165,39 @@
             width: 100%;
             padding: 60px 40px;
             background: rgba(255, 255, 255, 0.08);
-            border: 2px solid rgba(255, 20, 147, 0.4);
+            border: 2px solid rgba(255, 20, 147, 0.3);
             border-radius: 35px;
-            backdrop-filter: blur(25px);
+            backdrop-filter: blur(15px);
             box-shadow: 
-                0 0 60px rgba(255, 20, 147, 0.4),
-                0 0 120px rgba(138, 43, 226, 0.2),
-                inset 0 0 60px rgba(255, 20, 147, 0.1);
+                0 0 40px rgba(255, 20, 147, 0.3),
+                0 0 80px rgba(138, 43, 226, 0.15),
+                inset 0 0 40px rgba(255, 20, 147, 0.08);
             text-align: center;
             animation: card-float 6s ease-in-out infinite, card-glow 3s ease-in-out infinite;
-            transform: translateZ(0);
+            will-change: transform;
         }
 
         @keyframes card-float {
             0%, 100% {
-                transform: translateY(0px) rotateX(0deg);
+                transform: translateY(0px);
             }
             50% {
-                transform: translateY(-20px) rotateX(3deg);
+                transform: translateY(-15px);
             }
         }
 
         @keyframes card-glow {
             0%, 100% {
                 box-shadow: 
-                    0 0 60px rgba(255, 20, 147, 0.4),
-                    0 0 120px rgba(138, 43, 226, 0.2),
-                    inset 0 0 60px rgba(255, 20, 147, 0.1);
+                    0 0 40px rgba(255, 20, 147, 0.3),
+                    0 0 80px rgba(138, 43, 226, 0.15),
+                    inset 0 0 40px rgba(255, 20, 147, 0.08);
             }
             50% {
                 box-shadow: 
-                    0 0 80px rgba(255, 20, 147, 0.6),
-                    0 0 160px rgba(138, 43, 226, 0.4),
-                    inset 0 0 80px rgba(255, 20, 147, 0.2);
+                    0 0 60px rgba(255, 20, 147, 0.5),
+                    0 0 120px rgba(138, 43, 226, 0.3),
+                    inset 0 0 60px rgba(255, 20, 147, 0.15);
             }
         }
 
@@ -205,8 +206,9 @@
             font-size: 3.5em;
             margin-bottom: 15px;
             animation: emoji-bounce 1.2s ease-in-out infinite;
-            filter: drop-shadow(0 0 20px rgba(255, 20, 147, 0.6));
+            filter: drop-shadow(0 0 15px rgba(255, 20, 147, 0.4));
             line-height: 1;
+            will-change: transform;
         }
 
         @keyframes emoji-bounce {
@@ -214,7 +216,7 @@
                 transform: translateY(0) scale(1);
             }
             50% {
-                transform: translateY(-20px) scale(1.1);
+                transform: translateY(-15px) scale(1.08);
             }
         }
 
@@ -250,7 +252,7 @@
             background-clip: text;
             animation: gradient-shift 4s ease infinite;
             margin-bottom: 20px;
-            filter: drop-shadow(0 0 30px rgba(255, 20, 147, 0.5));
+            filter: drop-shadow(0 0 20px rgba(255, 20, 147, 0.3));
             letter-spacing: 2px;
         }
 
@@ -265,17 +267,17 @@
             height: 3px;
             background: linear-gradient(90deg, transparent, #ff1493, transparent);
             margin: 20px auto;
-            box-shadow: 0 0 20px rgba(255, 20, 147, 0.6);
+            box-shadow: 0 0 15px rgba(255, 20, 147, 0.5);
             animation: divider-glow 2s ease-in-out infinite;
         }
 
         @keyframes divider-glow {
             0%, 100% {
-                box-shadow: 0 0 20px rgba(255, 20, 147, 0.6);
+                box-shadow: 0 0 15px rgba(255, 20, 147, 0.5);
                 opacity: 0.6;
             }
             50% {
-                box-shadow: 0 0 40px rgba(255, 20, 147, 1);
+                box-shadow: 0 0 30px rgba(255, 20, 147, 0.8);
                 opacity: 1;
             }
         }
@@ -287,24 +289,24 @@
             margin-bottom: 20px;
             letter-spacing: 1px;
             animation: date-pulse 2s ease-in-out infinite;
-            text-shadow: 0 0 15px rgba(255, 182, 193, 0.8);
+            text-shadow: 0 0 10px rgba(255, 182, 193, 0.6);
         }
 
         @keyframes date-pulse {
             0%, 100% {
                 transform: scale(1);
-                text-shadow: 0 0 15px rgba(255, 182, 193, 0.8);
+                text-shadow: 0 0 10px rgba(255, 182, 193, 0.6);
             }
             50% {
-                transform: scale(1.05);
-                text-shadow: 0 0 30px rgba(255, 182, 193, 1);
+                transform: scale(1.03);
+                text-shadow: 0 0 20px rgba(255, 182, 193, 0.8);
             }
         }
 
         .magic-text {
-            font-size: 1.4em;
+            font-size: 1.3em;
             color: #fff;
-            margin-bottom: 18px;
+            margin-bottom: 15px;
             font-weight: 600;
             letter-spacing: 0.5px;
             animation: glow-text 2s ease-in-out infinite;
@@ -313,23 +315,21 @@
         @keyframes glow-text {
             0%, 100% {
                 color: #ffb6d9;
-                text-shadow: 0 0 10px rgba(255, 182, 193, 0.5);
+                text-shadow: 0 0 8px rgba(255, 182, 193, 0.4);
             }
             50% {
                 color: #fff;
-                text-shadow: 0 0 20px rgba(255, 20, 147, 0.8);
+                text-shadow: 0 0 15px rgba(255, 20, 147, 0.6);
             }
         }
 
         .message {
             color: #e0e0e0;
-            font-size: 1em;
+            font-size: 0.95em;
             line-height: 1.8;
-            margin-bottom: 18px;
+            margin-bottom: 15px;
             font-weight: 400;
             animation: message-fade 3s ease-in-out infinite;
-            max-height: 150px;
-            overflow-y: auto;
         }
 
         @keyframes message-fade {
@@ -338,23 +338,23 @@
         }
 
         .special-message {
-            font-size: 1.1em;
+            font-size: 1.05em;
             color: #ffb6d9;
             font-style: italic;
             font-weight: 600;
-            margin-bottom: 18px;
+            margin-bottom: 15px;
             animation: special-glow 2s ease-in-out infinite;
-            text-shadow: 0 0 20px rgba(255, 182, 193, 0.6);
+            text-shadow: 0 0 15px rgba(255, 182, 193, 0.4);
         }
 
         @keyframes special-glow {
             0%, 100% {
-                text-shadow: 0 0 20px rgba(255, 182, 193, 0.6);
+                text-shadow: 0 0 15px rgba(255, 182, 193, 0.4);
                 filter: brightness(1);
             }
             50% {
-                text-shadow: 0 0 40px rgba(255, 182, 193, 1);
-                filter: brightness(1.2);
+                text-shadow: 0 0 30px rgba(255, 182, 193, 0.8);
+                filter: brightness(1.1);
             }
         }
 
@@ -362,15 +362,16 @@
             font-size: 2.5em;
             margin: 15px 0;
             animation: emoji-rotate 4s linear infinite;
-            filter: drop-shadow(0 0 15px rgba(255, 20, 147, 0.5));
+            filter: drop-shadow(0 0 10px rgba(255, 20, 147, 0.3));
             line-height: 1;
+            will-change: transform;
         }
 
         @keyframes emoji-rotate {
             0% { transform: rotate(0deg) scale(1); }
-            25% { transform: rotate(90deg) scale(1.1); }
+            25% { transform: rotate(90deg) scale(1.08); }
             50% { transform: rotate(180deg) scale(1); }
-            75% { transform: rotate(270deg) scale(1.1); }
+            75% { transform: rotate(270deg) scale(1.08); }
             100% { transform: rotate(360deg) scale(1); }
         }
 
@@ -380,22 +381,23 @@
             background-size: 300% 300%;
             color: white;
             border: 2px solid rgba(255, 20, 147, 0.5);
-            padding: 16px 40px;
-            font-size: 1.1em;
+            padding: 14px 35px;
+            font-size: 1.05em;
             border-radius: 50px;
             cursor: pointer;
-            margin-top: 20px;
+            margin-top: 18px;
             font-weight: 700;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
             box-shadow: 
-                0 0 30px rgba(255, 20, 147, 0.5),
-                0 0 60px rgba(138, 43, 226, 0.3);
+                0 0 25px rgba(255, 20, 147, 0.4),
+                0 0 50px rgba(138, 43, 226, 0.2);
             letter-spacing: 0.5px;
             position: relative;
             overflow: hidden;
             animation: button-glow 2s ease-in-out infinite;
             width: 100%;
-            max-width: 280px;
+            max-width: 260px;
+            will-change: transform;
         }
 
         .magic-button::before {
@@ -405,7 +407,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             animation: shine 3s infinite;
         }
 
@@ -417,20 +419,18 @@
         @keyframes button-glow {
             0%, 100% {
                 box-shadow: 
-                    0 0 30px rgba(255, 20, 147, 0.5),
-                    0 0 60px rgba(138, 43, 226, 0.3);
-                transform: scale(1);
+                    0 0 25px rgba(255, 20, 147, 0.4),
+                    0 0 50px rgba(138, 43, 226, 0.2);
             }
             50% {
                 box-shadow: 
-                    0 0 50px rgba(255, 20, 147, 0.8),
-                    0 0 100px rgba(138, 43, 226, 0.5);
-                transform: scale(1.05);
+                    0 0 40px rgba(255, 20, 147, 0.6),
+                    0 0 80px rgba(138, 43, 226, 0.3);
             }
         }
 
         .magic-button:active {
-            transform: scale(0.98);
+            transform: scale(0.97);
         }
 
         /* تأثيرات خاصة */
@@ -446,9 +446,10 @@
 
         .heart {
             position: absolute;
-            font-size: 2em;
+            font-size: 1.8em;
             animation: fall-heart 4s linear forwards;
-            filter: drop-shadow(0 0 10px rgba(255, 20, 147, 0.8));
+            filter: drop-shadow(0 0 8px rgba(255, 20, 147, 0.6));
+            will-change: transform;
         }
 
         @keyframes fall-heart {
@@ -463,18 +464,19 @@
             100% {
                 top: 100vh;
                 opacity: 0;
-                transform: translateX(80px) rotate(360deg) scale(0);
+                transform: translateX(60px) rotate(360deg) scale(0);
             }
         }
 
         .sparkle {
             position: absolute;
-            width: 3px;
-            height: 3px;
+            width: 2.5px;
+            height: 2.5px;
             background: #fff;
             border-radius: 50%;
             animation: sparkle-fly 2s ease-out forwards;
-            box-shadow: 0 0 10px rgba(255, 20, 147, 0.8);
+            box-shadow: 0 0 8px rgba(255, 20, 147, 0.6);
+            will-change: transform;
         }
 
         @keyframes sparkle-fly {
@@ -488,20 +490,15 @@
             }
         }
 
-        /* Responsive - تحسينات الموبايل */
+        /* Responsive */
         @media (max-width: 600px) {
-            .main-container {
-                padding: 15px;
-            }
-
             .card {
                 padding: 45px 30px;
                 border-radius: 30px;
             }
 
             .name {
-                font-size: 2.3em;
-                letter-spacing: 1px;
+                font-size: 2.2em;
             }
 
             .title {
@@ -510,19 +507,16 @@
 
             .emoji-main {
                 font-size: 2.8em;
-                margin-bottom: 12px;
             }
 
             .message {
-                font-size: 0.95em;
-                line-height: 1.6;
-                max-height: 120px;
+                font-size: 0.9em;
+                margin-bottom: 12px;
             }
 
             .magic-button {
-                padding: 14px 35px;
-                font-size: 1em;
-                margin-top: 15px;
+                padding: 12px 30px;
+                font-size: 0.95em;
             }
         }
 
@@ -533,7 +527,7 @@
             }
 
             .name {
-                font-size: 2em;
+                font-size: 1.9em;
             }
 
             .title {
@@ -544,18 +538,8 @@
                 font-size: 2.3em;
             }
 
-            .date {
-                font-size: 1.2em;
-            }
-
             .message {
-                font-size: 0.9em;
-                max-height: 100px;
-                margin-bottom: 15px;
-            }
-
-            .special-message {
-                font-size: 1em;
+                font-size: 0.85em;
             }
 
             .emoji-bottom {
@@ -563,7 +547,6 @@
             }
         }
 
-        /* تحسينات الأداء */
         @media (prefers-reduced-motion: reduce) {
             * {
                 animation: none !important;
@@ -590,10 +573,10 @@
                 <div class="date">18 أغسطس</div>
                 <div class="magic-text">💫 يوم ملكتي الجميلة 💫</div>
                 <div class="message">
-                    كل يوم معك هو عيد، لكن هذا اليوم خاص لأنه يوم حبيبتي. أنتِ ليستِ مجرد امرأة، أنتِ حياتي وروحي. بعينيك أرى مستقبلنا، وفي قلبك أجد بيتي. يا من تشعلين قلبي حباً في كل لحظة، عيد ميلادك يستحق أن يكون أجمل من الأحلام.
+                    كل يوم معك هو عيد، لكن هذا اليوم خاص لأنه يوم حبيبتي. أنتِ ليستِ مجرد امرأة، أنتِ حياتي وروحي.
                 </div>
                 <div class="special-message">
-                    يا ملكتي، أتمنى أن تكون كل ثانية من حياتك مليئة بالحب الذي أشعر به تجاهك. أنتِ تستحقين كل السعادة في العالم، لأنك أنتِ أعظم هدية حصلت عليها في حياتي. 💕✨🌹
+                    أتمنى أن تكون كل ثانية من حياتك مليئة بالحب والسعادة. أنتِ تستحقين أجمل الأشياء! 💕
                 </div>
                 <div class="emoji-bottom">💑💎👑</div>
                 <button class="magic-button" onclick="triggerMagic()">اضغطي ✨ حبي</button>
@@ -602,49 +585,60 @@
     </div>
 
     <script>
-        // إنشاء النجوم
+        // إنشاء النجوم - عدد أقل
         function createStars() {
             const container = document.getElementById('starsContainer');
-            for (let i = 0; i < 100; i++) {
+            const starCount = window.innerWidth <= 768 ? 50 : 80;
+            
+            for (let i = 0; i < starCount; i++) {
                 const star = document.createElement('div');
                 star.className = 'star';
-                star.style.width = Math.random() * 2.5 + 'px';
-                star.style.height = star.style.width;
+                const size = Math.random() * 2 + 0.5;
+                star.style.width = size + 'px';
+                star.style.height = size + 'px';
                 star.style.left = Math.random() * 100 + '%';
                 star.style.top = Math.random() * 100 + '%';
-                star.style.animationDuration = (Math.random() * 3 + 2) + 's';
-                star.style.animationDelay = Math.random() * 3 + 's';
+                star.style.animationDuration = (Math.random() * 2.5 + 2) + 's';
+                star.style.animationDelay = Math.random() * 2 + 's';
                 container.appendChild(star);
             }
         }
 
-        // إنشاء الجزيئات السحرية
+        // إنشاء الجزيئات - تقليل التكرار
         function createParticles() {
             const container = document.getElementById('particleContainer');
-            const isMobile = window.innerWidth <= 768;
-            const interval = isMobile ? 300 : 200;
+            const interval = 400;
+            let particleCount = 0;
+            const maxParticles = 8;
             
             setInterval(() => {
+                if (particleCount >= maxParticles) return;
+                
                 const particle = document.createElement('div');
                 particle.className = 'particle orb';
                 particle.style.left = Math.random() * 100 + '%';
                 particle.style.top = Math.random() * 100 + '%';
                 
                 const angle = Math.random() * Math.PI * 2;
-                const distance = Math.random() * 250 + 150;
+                const distance = Math.random() * 200 + 100;
                 const tx = Math.cos(angle) * distance;
                 const ty = Math.sin(angle) * distance;
                 
                 particle.style.setProperty('--tx', tx + 'px');
                 particle.style.setProperty('--ty', ty + 'px');
-                particle.style.animation = `float-orb ${Math.random() * 3 + 3}s ease-out forwards`;
+                particle.style.animation = `float-orb ${Math.random() * 2.5 + 2.5}s ease-out forwards`;
                 
                 container.appendChild(particle);
-                setTimeout(() => particle.remove(), 6000);
+                particleCount++;
+                
+                setTimeout(() => {
+                    particle.remove();
+                    particleCount--;
+                }, 4500);
             }, interval);
         }
 
-        // قلوب الحب الساقطة
+        // قلوب الحب
         function createHeart() {
             const container = document.getElementById('heartsContainer');
             const heart = document.createElement('div');
@@ -652,15 +646,15 @@
             heart.innerHTML = '💗';
             heart.style.left = Math.random() * 100 + '%';
             heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
-            heart.style.animationDelay = Math.random() * 1 + 's';
             container.appendChild(heart);
+            
             setTimeout(() => heart.remove(), 5500);
         }
 
-        // ألعاب نارية براقة
+        // البريق
         function createSparkles(x, y) {
             const container = document.getElementById('heartsContainer');
-            const sparkleCount = window.innerWidth <= 768 ? 20 : 30;
+            const sparkleCount = window.innerWidth <= 768 ? 12 : 18;
             
             for (let i = 0; i < sparkleCount; i++) {
                 const sparkle = document.createElement('div');
@@ -669,16 +663,16 @@
                 sparkle.style.top = y + 'px';
                 
                 const angle = (i / sparkleCount) * Math.PI * 2;
-                const distance = Math.random() * 250 + 150;
+                const distance = Math.random() * 200 + 100;
                 const tx = Math.cos(angle) * distance;
                 const ty = Math.sin(angle) * distance;
                 
                 sparkle.style.setProperty('--tx', tx + 'px');
                 sparkle.style.setProperty('--ty', ty + 'px');
-                sparkle.style.animationDuration = (Math.random() * 1 + 1.5) + 's';
+                sparkle.style.animationDuration = (Math.random() * 0.8 + 1.2) + 's';
                 
                 container.appendChild(sparkle);
-                setTimeout(() => sparkle.remove(), 2500);
+                setTimeout(() => sparkle.remove(), 2000);
             }
         }
 
@@ -691,8 +685,7 @@
                 card.style.animation = 'card-float 6s ease-in-out infinite, card-glow 3s ease-in-out infinite';
             }, 10);
 
-            // قلوب متعددة
-            for (let i = 0; i < 10; i++) {
+            for (let i = 0; i < 6; i++) {
                 setTimeout(() => {
                     createHeart();
                     createSparkles(
@@ -703,70 +696,23 @@
             }
         }
 
-        // تأثير اللمس السحري (بدلاً من الماوس على الموبايل)
-        let lastTouchTime = 0;
-        document.addEventListener('touchmove', (e) => {
-            const now = Date.now();
-            if (now - lastTouchTime > 200) {
-                lastTouchTime = now;
-                const touches = e.touches[0];
-                if (Math.random() > 0.95) {
-                    const sparkle = document.createElement('div');
-                    sparkle.className = 'sparkle';
-                    sparkle.style.left = touches.clientX + 'px';
-                    sparkle.style.top = touches.clientY + 'px';
-                    sparkle.style.setProperty('--tx', (Math.random() - 0.5) * 80 + 'px');
-                    sparkle.style.setProperty('--ty', (Math.random() - 0.5) * 80 + 'px');
-                    sparkle.style.animationDuration = '1.5s';
-                    document.getElementById('heartsContainer').appendChild(sparkle);
-                    setTimeout(() => sparkle.remove(), 1500);
-                }
-            }
-        }, { passive: true });
-
-        // تأثير الماوس السحري (للديسكتوب)
-        document.addEventListener('mousemove', (e) => {
-            if (window.innerWidth > 768 && Math.random() > 0.98) {
-                const sparkle = document.createElement('div');
-                sparkle.className = 'sparkle';
-                sparkle.style.left = e.clientX + 'px';
-                sparkle.style.top = e.clientY + 'px';
-                sparkle.style.setProperty('--tx', (Math.random() - 0.5) * 100 + 'px');
-                sparkle.style.setProperty('--ty', (Math.random() - 0.5) * 100 + 'px');
-                sparkle.style.animationDuration = '1.5s';
-                document.getElementById('heartsContainer').appendChild(sparkle);
-                setTimeout(() => sparkle.remove(), 1500);
-            }
-        });
-
         // تهيئة الصفحة
         window.addEventListener('load', () => {
             createStars();
             createParticles();
             
-            // قلوب عادية تسقط
             setInterval(() => {
-                if (Math.random() > 0.7) {
+                if (Math.random() > 0.8) {
                     createHeart();
                 }
-            }, 1200);
+            }, 2000);
         });
 
-        // كليك/تاب عشوائي يعطي سحر
+        // كليك/تاب
         document.addEventListener('click', (e) => {
             if (e.target.tagName !== 'BUTTON') {
                 createSparkles(e.clientX, e.clientY);
             }
-        });
-
-        // منع التكبير على الضغط المزدوج
-        let lastTap = 0;
-        document.addEventListener('touchend', (e) => {
-            const now = Date.now();
-            if (now - lastTap <= 300) {
-                e.preventDefault();
-            }
-            lastTap = now;
         });
     </script>
 </body>
